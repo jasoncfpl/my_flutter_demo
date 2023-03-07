@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'dart:math' as math;
 
@@ -9,6 +11,7 @@ class StatelessContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log("$hashCode is build : ${context.hashCode}");
     return Container(
       width: 100,
       height: 100,

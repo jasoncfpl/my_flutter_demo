@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_flutter_demo/key/stateful_container.dart';
 import 'package:my_flutter_demo/key/stateless_container.dart';
 
 /// flutter key learn
@@ -15,13 +16,33 @@ class _TestKeyPageState extends State<TestKeyPage> {
     StatelessContainer(),
   ];
 
+  List<Widget> statefulWidgets = [
+    StatefulContainer(),
+    StatefulContainer(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: widgets,
+        child: Column(
+          children: [
+            Text("stateless widget"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ...widgets,
+              ],
+            ),
+            Text("stateful widget"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ...statefulWidgets
+              ],
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -33,6 +54,7 @@ class _TestKeyPageState extends State<TestKeyPage> {
 
   switchWidget(){
     widgets.insert(0, widgets.removeAt(1));
+    statefulWidgets.insert(0, statefulWidgets.removeAt(1));
     setState(() {});
   }
 }
