@@ -17,12 +17,13 @@ class _StatefulContainerState extends State<StatefulContainer> {
 
   @override
   void initState() {
-    log("$hashCode is build : ${context.hashCode}");
+    log("StatefulContainer $hashCode is initState : ${context.hashCode}");
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    log("StatefulContainer $hashCode is build : ${context.hashCode}");
     return Container(
       width: 100,
       height: 100,

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter_demo/key/stateful_container.dart';
@@ -18,8 +20,8 @@ class _TestKeyPageState extends State<TestKeyPage> {
   ];
 
   List<Widget> statefulWidgets = [
-    StatefulContainer(),
-    StatefulContainer(),
+    StatefulContainer(key: UniqueKey(),),
+    StatefulContainer(key: UniqueKey(),),
   ];
 
   @override
@@ -54,6 +56,7 @@ class _TestKeyPageState extends State<TestKeyPage> {
   }
 
   switchWidget(){
+    log("switchWidget");
     // widgets.insert(0, widgets.removeAt(1));
     statefulWidgets.insert(0, statefulWidgets.removeAt(1));
     setState(() {});
