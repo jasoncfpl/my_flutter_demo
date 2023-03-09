@@ -15,8 +15,8 @@ class TestKeyPage extends StatefulWidget {
 class _TestKeyPageState extends State<TestKeyPage> {
 
   List<Widget> widgets = [
-    StatelessContainer(),
-    StatelessContainer(),
+    StatelessContainer(key: UniqueKey(),),
+    StatelessContainer(key: UniqueKey()),
   ];
 
   List<Widget> statefulWidgets = [
@@ -57,8 +57,8 @@ class _TestKeyPageState extends State<TestKeyPage> {
 
   switchWidget(){
     log("switchWidget");
-    // widgets.insert(0, widgets.removeAt(1));
-    statefulWidgets.insert(0, statefulWidgets.removeAt(1));
+    widgets.insert(0, widgets.removeAt(1));
+    // statefulWidgets.insert(0, statefulWidgets.removeAt(1));
     setState(() {});
   }
 }

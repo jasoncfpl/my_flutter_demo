@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_flutter_demo/error_page.dart';
 import 'package:my_flutter_demo/texture_page.dart';
 
+import 'key/test_animation_list_page.dart';
 import 'key/test_key_page.dart';
 
 void main() {
@@ -79,6 +80,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                 );
               }, child: Text("Flutter Key Test"),),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(
+                        builder: (context) => TestAnimationListPage()
+                    )
+                );
+              }, child: Text("Flutter Key And AnimationList"),),
           ],
         ),
       ),
