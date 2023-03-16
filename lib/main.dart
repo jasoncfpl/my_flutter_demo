@@ -4,6 +4,7 @@ import 'package:my_flutter_demo/texture_page.dart';
 
 import 'key/test_animation_list_page.dart';
 import 'key/test_key_page.dart';
+import 'nil/test_nil_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -89,6 +90,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                 );
               }, child: Text("Flutter Key And AnimationList"),),
+
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(
+                        builder: (context) => TestNilPage()
+                    )
+                );
+              }, child: Text("Flutter nil Test"),),
           ],
         ),
       ),
