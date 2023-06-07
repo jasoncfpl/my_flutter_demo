@@ -13,6 +13,7 @@ class StatelessContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color color = Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
     log("StatelessContainer $hashCode is build : ${context.runtimeType}");
     return Container(
       width: 100,

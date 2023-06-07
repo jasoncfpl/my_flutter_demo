@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_demo/error_page.dart';
+import 'package:my_flutter_demo/test_widget_level_page.dart';
 import 'package:my_flutter_demo/texture_page.dart';
 
 import 'key/test_animation_list_page.dart';
@@ -100,6 +101,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                 );
               }, child: Text("Flutter nil Test"),),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(
+                        builder: (context) => TestWidgetLevelPage()
+                    )
+                );
+              }, child: Text("Test Widget Level"),),
+
+
           ],
         ),
       ),

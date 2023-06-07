@@ -14,14 +14,26 @@ class TestKeyPage extends StatefulWidget {
 
 class _TestKeyPageState extends State<TestKeyPage> {
 
+  GlobalKey globalKey = new GlobalKey();
+
   List<Widget> widgets = [
     StatelessContainer(key: UniqueKey(),),
     StatelessContainer(key: UniqueKey()),
   ];
 
   List<Widget> statefulWidgets = [
-    StatefulContainer(key: UniqueKey(),),
-    StatefulContainer(key: UniqueKey(),),
+    Padding(
+      key: ValueKey(0),
+      padding: EdgeInsets.all(8.0),
+      child: StatefulContainer(),
+    ),
+    Padding(
+      key: ValueKey(1),
+      padding: EdgeInsets.all(8.0),
+      child: StatefulContainer(),
+    ),
+    // StatefulContainer(key: globalKey,),
+    // StatefulContainer(key: globalKey,),
   ];
 
   @override
@@ -58,7 +70,7 @@ class _TestKeyPageState extends State<TestKeyPage> {
   switchWidget(){
     log("switchWidget");
     widgets.insert(0, widgets.removeAt(1));
-    // statefulWidgets.insert(0, statefulWidgets.removeAt(1));
+    statefulWidgets.insert(0, statefulWidgets.removeAt(1));
     setState(() {});
   }
 }
