@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_flutter_demo/animation_page.dart';
 import 'package:my_flutter_demo/error_page.dart';
 import 'package:my_flutter_demo/test_widget_level_page.dart';
 import 'package:my_flutter_demo/texture_page.dart';
 
+import 'getx/dl_user_services.dart';
 import 'key/test_animation_list_page.dart';
 import 'key/test_key_page.dart';
 import 'nil/test_nil_page.dart';
 
 void main() {
+
   runApp(MyApp());
 }
 
@@ -15,7 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -111,6 +115,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               }, child: Text("Test Widget Level"),),
 
+        ElevatedButton(
+          onPressed: () {
+            Get.put(DLUserServices(), permanent: true);
+          }, child: Text("App background"),),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(
+                        builder: (context) => AnimationPage()
+                    )
+                );
+              }, child: Text("Animation"),),
 
           ],
         ),
