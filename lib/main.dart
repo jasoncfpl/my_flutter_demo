@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_flutter_demo/animation_page.dart';
 import 'package:my_flutter_demo/error_page.dart';
+import 'package:my_flutter_demo/stream/my_stream_page.dart';
 import 'package:my_flutter_demo/test_widget_level_page.dart';
 import 'package:my_flutter_demo/texture_page.dart';
 
@@ -11,7 +12,6 @@ import 'key/test_key_page.dart';
 import 'nil/test_nil_page.dart';
 
 void main() {
-
   runApp(MyApp());
 }
 
@@ -46,11 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
-    Navigator.push(context,
-        MaterialPageRoute(
-          builder: (context) => ErrorPage()
-        )
-    );
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ErrorPage()));
   }
 
   @override
@@ -73,62 +70,62 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (context) => TexturePage()
-                    )
-                );
-              }, child: Text("Texture"),),
+                    MaterialPageRoute(builder: (context) => TexturePage()));
+              },
+              child: Text("Texture"),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TestKeyPage()));
+              },
+              child: Text("Flutter Key Test"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
                     MaterialPageRoute(
-                        builder: (context) => TestKeyPage()
-                    )
-                );
-              }, child: Text("Flutter Key Test"),),
-
+                        builder: (context) => TestAnimationListPage()));
+              },
+              child: Text("Flutter Key And AnimationList"),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TestNilPage()));
+              },
+              child: Text("Flutter nil Test"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
                     MaterialPageRoute(
-                        builder: (context) => TestAnimationListPage()
-                    )
-                );
-              }, child: Text("Flutter Key And AnimationList"),),
-
-
+                        builder: (context) => TestWidgetLevelPage()));
+              },
+              child: Text("Test Widget Level"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.put(DLUserServices(), permanent: true);
+              },
+              child: Text("App background"),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (context) => TestNilPage()
-                    )
-                );
-              }, child: Text("Flutter nil Test"),),
-
+                    MaterialPageRoute(builder: (context) => AnimationPage()));
+              },
+              child: Text("Animation"),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (context) => TestWidgetLevelPage()
-                    )
-                );
-              }, child: Text("Test Widget Level"),),
-
-        ElevatedButton(
-          onPressed: () {
-            Get.put(DLUserServices(), permanent: true);
-          }, child: Text("App background"),),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (context) => AnimationPage()
-                    )
-                );
-              }, child: Text("Animation"),),
-
+                    MaterialPageRoute(builder: (context) => MyStreamPage()));
+              },
+              child: Text("MyStreamPage"),
+            ),
           ],
         ),
       ),
